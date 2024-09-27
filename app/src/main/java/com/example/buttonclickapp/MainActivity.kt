@@ -1,7 +1,9 @@
 package com.example.buttonclickapp
 import androidx.appcompat.widget.Toolbar
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.text.method.ScrollingMovementMethod
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -10,11 +12,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+private var TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity() {
     private var textView: TextView? = null;
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Log.d(TAG, "OnCreate: called")
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.note_layout)
@@ -42,6 +46,7 @@ class MainActivity : AppCompatActivity() {
 
         button.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {
+                Log.d(TAG, "onClick: called")
                textView?.append(userInput.text)
                 textView?.append("\n")
             }
@@ -56,4 +61,42 @@ class MainActivity : AppCompatActivity() {
             ? (Nullable): Indicates that the parameter can be null. This is part of Kotlin's null safety feature.
          */
     }
+//    override fun onStart() {
+//        Log.d(TAG, "onStart: called")
+//        super.onStart()
+//    }
+//    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+//        Log.d(TAG, "onRestoreInstanceState: called")
+//        super.onRestoreInstanceState(savedInstanceState)
+//    }
+//    override fun onResume(){
+//        Log.d(TAG, "onResume: called")
+//        super.onResume()
+//    }
+//    override fun onPause(){
+//        Log.d(TAG, "onPause: called")
+//        super.onPause()
+//    }
+//
+//    override fun onSaveInstanceState(outState: Bundle) {
+//        Log.d(TAG, "onSaveInstanceState: called")
+//        if (outState != null) {
+//            super.onSaveInstanceState(outState)
+//        }
+//    }
+//
+//    override fun onStop() {
+//        Log.d(TAG, "onStop: called")
+//        super.onStop()
+//    }
+//
+//    override fun onRestart() {
+//        Log.d(TAG, "onRestart: called")
+//        super.onRestart()
+//    }
+//
+//    override fun onDestroy() {
+//        Log.d(TAG, "onDestroy: called")
+//        super.onDestroy()
+//    }
 }
